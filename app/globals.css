@@ -312,6 +312,10 @@
   @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
 }
 
+@utility button-primary {
+  @apply background-dark400_light900 body-medium text-dark200_light800 rounded-2 min-h-12 flex-1 px-4 py-3.5;
+}
+
 @utility btn {
   @apply bg-light-800! dark:bg-dark-300!;
 }
