@@ -7,12 +7,12 @@ import { getDeviconClassName } from '@/lib/utils';
 interface Props {
     _id: string;
     name: string;
-    questions: string;
+    questions?: string;
     showCount?: boolean;
-    compatct?: boolean;
+    compact?: boolean;
 }
 
-const TagCard = ({_id, name, questions, showCount, compatct} : Props) => {
+const TagCard = ({_id, name, questions, showCount, compact} : Props) => {
     const iconClass = getDeviconClassName(name);
     return (
         <Link href={ROUTES.TAGS(_id)} className={`flex  justify-between gap-2`}>

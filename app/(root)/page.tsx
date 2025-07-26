@@ -1,4 +1,5 @@
 import { auth } from "@/auth"
+import QuestionCard from "@/components/cards/QuestionCard"
 import HomeFilter from "@/components/filters/HomeFilter"
 import LocalSearch from "@/components/search/LocalSearch"
 import { Button } from "@/components/ui/button"
@@ -13,7 +14,7 @@ const questions = [
                 { id: 1, name: "React" },
                 { id: 2, name: "JavaScript" }
             ], 
-            author: { id: 1, name: "John Doe" },
+            author: { id: 1, name: "John Doe", image:'/icons/avatar.svg' },
             upvotes: 10,
             answers: 5,
             views: 100,
@@ -26,7 +27,7 @@ const questions = [
                 { id: 1, name: "JavaScript" },
                 { id: 2, name: "JavaScript" }
             ], 
-            author: { id: 1, name: "John Doe" },
+            author: { id: 1, name: "John Doe", image: '/icons/avatar.svg'},
             upvotes: 10,
             answers: 5,
             views: 100,
@@ -77,10 +78,7 @@ const Home = async ({searchParams}: SearchParams) => {
 
         <div className="mt-10 flex w-full flex-col gap-6">
             {filteredQuestions.map((question) => (
-                <div key={question.id} className="rounded-lg border border-gray-300 p-4">
-                    <h2 className="text-lg font-semibold">{question.title}</h2>
-                    <p className="text-sm text-gray-600">{question.description}</p>
-                </div>
+                <QuestionCard key={question.id} question={question} />
             ))}
         </div>
 

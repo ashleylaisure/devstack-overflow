@@ -11,7 +11,7 @@ import { Input } from "../ui/input";
 interface Props {
     route: string;
     imgSrc: string;
-    placeholder: string;
+    placeholder: string; 
     otherClasses?: string;
 }
 
