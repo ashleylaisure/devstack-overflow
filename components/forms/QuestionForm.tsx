@@ -144,26 +144,26 @@ const QuestionForm = () => {
                     </FormLabel>
                     <FormControl>
                         <div>
-                        <Input
-                            className="paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px] border"
-                            placeholder="Add tags..."
-                            onKeyDown={(e) => handleInputKeyDown(e, field)}
-                        />
-                        {field.value.length > 0 && (
-                            <div className="flex-start mt-2.5 flex-wrap gap-2.5">
-                            {field?.value?.map((tag: string) => (
-                                <TagCard
-                                key={tag}
-                                _id={tag}
-                                name={tag}
-                                compact
-                                remove
-                                isButton
-                                handleRemove={() => handleTagRemove(tag, field)}
-                                />
-                            ))}
-                            </div>
-                        )}
+                            <Input
+                                className="paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px] border"
+                                placeholder="Add tags..."
+                                onKeyDown={(e) => handleInputKeyDown(e, field)}
+                            />
+                            {field.value.length > 0 && (
+                                <div className="flex-start mt-2.5 flex-wrap gap-2.5">
+                                    {field?.value?.map((tag: string) => (
+                                        <TagCard
+                                        key={tag}
+                                        _id={tag}
+                                        name={tag}
+                                        compact
+                                        remove
+                                        isButton
+                                        handleRemove={() => handleTagRemove(tag, field)}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </FormControl>
                     <FormDescription className="body-regular mt-2.5 text-light-500">

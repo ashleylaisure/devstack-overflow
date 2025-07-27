@@ -14,6 +14,14 @@ const NavLinks = ({isMobileNav = false} : {isMobileNav?: boolean}) => {
     return (
         <>
         {sidebarLinks.map((link) => {
+            // Check if the current pathname matches the link's route
+            // If the link's route is '/profile', append the userId to the route
+            // This is to ensure that the profile link points to the correct user's profile
+            // The isActive variable is used to determine if the link should be styled as active
+            // It checks if the current pathname includes the link's route and if the route length is greater than 1
+            // This is to avoid matching the root path '/' which is not a valid link
+            // The pathname is compared directly to the link's route for exact matches
+            // The cn function is used to conditionally apply classes based on the isActive state
             const isActive = (pathname.includes(link.route) && link.route.length > 1) || pathname === link.route;
 
             if(link.route === '/profile' ){
@@ -42,6 +50,7 @@ const NavLinks = ({isMobileNav = false} : {isMobileNav?: boolean}) => {
                     />
                     <p className={cn(
                         isActive ? 'base-bold' : 'base-medium',
+                        // hide the text on tablets when its not a mobile nav
                         !isMobileNav && "max-lg:hidden"
                     )}>
                         {link.label}
@@ -49,6 +58,9 @@ const NavLinks = ({isMobileNav = false} : {isMobileNav?: boolean}) => {
                 </Link>
             )
 
+            // If isMobileNav is true, wrap the LinkComponent in SheetClose
+            // This is to ensure that the mobile navigation closes when a link is clicked
+            // If isMobileNav is false, return the LinkComponent directly
             return isMobileNav ? (
                 <SheetClose asChild key={link.label}>
                     {LinkComponent}

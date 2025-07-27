@@ -41,10 +41,17 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       <SessionProvider session={session}>
         <body className={`${inter.className} ${spaceGrotesk.variable} antialiased`}>
           <ThemeProvider
+            // This is the theme provider that wraps the whole application
+            // It allows for theme switching and provides a context for theme management
             attribute="class"
+            // This is the attribute that will be used to set the theme class on the html element
             defaultTheme="system"
+            // This is the default theme that will be used if no theme is set
+            // It can be 'light', 'dark', or 'system' based on user preference
             enableSystem
+            // This enables the system theme, allowing the application to switch themes based on the user's system preference
             disableTransitionOnChange
+            // This disables the transition effect when the theme changes
           >
             {children}
           </ThemeProvider>

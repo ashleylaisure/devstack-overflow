@@ -13,6 +13,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const Theme = () => {
+    // Using the useTheme hook to access the theme context
+    // This allows us to change the theme dynamically
+    // and also to read the current theme value.
+    // The setTheme function is used to change the theme.
+    // The current theme can be accessed via the theme variable.
     const { setTheme } = useTheme()
 
     return (
